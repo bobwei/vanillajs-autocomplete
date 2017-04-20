@@ -27,7 +27,7 @@ const createAutoComplete = ({
   refs.$input.onblur = () => setState({ isOptionListHidden: true });
 
   refs.$optionList = createElement(
-    'div',
+    'ul',
     {},
     getState().data.map(props => createElement(Option, props)),
   );
