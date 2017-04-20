@@ -1,3 +1,5 @@
+import createElement from 'modules/dom/createElement';
+
 import './index.scss';
 
 const render = (el, mountNode) => {
@@ -5,8 +7,7 @@ const render = (el, mountNode) => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  const testEl = document.createElement('div');
-  testEl.textContent = 'Hello World';
+  const el = createElement('div', {}, 'Hello World');
   const mountNode = document.getElementById('app');
-  render(testEl, mountNode);
+  render(el, mountNode);
 });
