@@ -1,6 +1,7 @@
 import createElement from 'modules/dom/createElement';
 import insertBefore from 'modules/dom/insertBefore';
 import replace from 'modules/dom/replace';
+import toggleDisplay from 'modules/dom/toggleDisplay';
 import createStore from 'modules/stores/createStore';
 import watch from 'modules/utils/watch';
 
@@ -19,6 +20,22 @@ const createAutoComplete = ({
   const refs = {};
   const oninput = oninputHandler({ data, setState });
 
+  refs.$input = el;
+  refs.$input.oninput = oninput;
+  refs.$input.onfocus = () => setState({ isOptionListHidden: false });
+  refs.$input.onblur = () => setState({ isOptionListHidden: true });
+
+  refs.$optionList = createElement(
+    'div',
+    {},
+    getState().data.map(props => createElement(Option, props)),
+  );
+  refs.$optionListWrapper = createElement(
+    'div',
+    {},
+    refs.$optionList,
+  );
+
   /* handle data change by replacing with a new $optionList */
   subscribe(watch(state => state.data, () => {
     refs.$optionList = replace(
@@ -32,22 +49,9 @@ const createAutoComplete = ({
   }));
 
   /* handle isOptionListHidden change */
-  subscribe(watch(state => state.isOptionListHidden, (isOptionListHidden) => {
-    refs.$optionList.style.display = (isOptionListHidden) ? 'none' : 'block';
-  }));
+  subscribe(watch(state => state.isOptionListHidden, toggleDisplay(refs.$optionListWrapper)));
 
-  refs.$input = el;
-  refs.$input.oninput = oninput;
-  refs.$input.onfocus = () => setState({ isOptionListHidden: false });
-  refs.$input.onblur = () => setState({ isOptionListHidden: true });
-
-  refs.$optionList = createElement(
-    'div',
-    {},
-    getState().data.map(props => createElement(Option, props)),
-  );
-
-  insertBefore(refs.$optionList, refs.$input);
+  insertBefore(refs.$optionListWrapper, refs.$input);
 };
 
 export default createAutoComplete;
