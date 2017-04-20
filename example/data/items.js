@@ -1,4 +1,4 @@
-const items = [...(new Array(10))].map((obj, j) => ({
+const items = [...(new Array(100))].map((obj, j) => ({
   value: j,
   label: `label ${j}`,
 }));
