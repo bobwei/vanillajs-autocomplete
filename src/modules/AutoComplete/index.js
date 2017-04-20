@@ -5,6 +5,7 @@ import toggleDisplay from 'modules/dom/toggleDisplay';
 import createStore from 'modules/stores/createStore';
 import watch from 'modules/utils/watch';
 
+import Container from './components/Container';
 import Option from './components/Option';
 import oninputHandler from './eventHandlers/oninput';
 
@@ -30,11 +31,7 @@ const createAutoComplete = ({
     {},
     getState().data.map(props => createElement(Option, props)),
   );
-  refs.$container = createElement(
-    'div',
-    {},
-    refs.$optionList,
-  );
+  refs.$container = createElement(Container, { el }, refs.$optionList);
 
   /* handle data change by replacing with a new $optionList */
   subscribe(watch(state => state.data, () => {
