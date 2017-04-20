@@ -6,7 +6,7 @@ const createElement = (
   /*
     create element
   */
-  const el = document.createElement(type);
+  const el = (typeof type === 'function') ? type({ ...props, children }) : document.createElement(type);
   /*
     for each non-empty prop, set to element properties
   */
