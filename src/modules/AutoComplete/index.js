@@ -30,7 +30,7 @@ const createAutoComplete = ({
     {},
     getState().data.map(props => createElement(Option, props)),
   );
-  refs.$optionListWrapper = createElement(
+  refs.$container = createElement(
     'div',
     {},
     refs.$optionList,
@@ -49,9 +49,9 @@ const createAutoComplete = ({
   }));
 
   /* handle isOptionListHidden change */
-  subscribe(watch(state => state.isOptionListHidden, toggleDisplay(refs.$optionListWrapper)));
+  subscribe(watch(state => state.isOptionListHidden, toggleDisplay(refs.$container)));
 
-  insertBefore(refs.$optionListWrapper, refs.$input);
+  insertBefore(refs.$container, refs.$input);
 };
 
 export default createAutoComplete;
