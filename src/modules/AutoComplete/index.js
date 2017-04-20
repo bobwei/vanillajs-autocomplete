@@ -11,13 +11,16 @@ const createAutoComplete = ({
   el,
   data,
 }) => {
-  const store = createStore({ data });
-  const { getState, setState } = store;
+  const store = createStore({
+    data,
+    isOptionListHidden: true,
+  });
+  const { getState, setState, subscribe } = store;
   const refs = {};
   const oninput = oninputHandler({ data, setState });
 
   /* handle data change by replacing with a new $optionList */
-  store.subscribe(watch(state => state.data, () => {
+  subscribe(watch(state => state.data, () => {
     refs.$optionList = replace(
       createElement(
         'div',
@@ -28,8 +31,15 @@ const createAutoComplete = ({
     );
   }));
 
+  /* handle isOptionListHidden change */
+  subscribe(watch(state => state.isOptionListHidden, (isOptionListHidden) => {
+    refs.$optionList.style.display = (isOptionListHidden) ? 'none' : 'block';
+  }));
+
   refs.$input = el;
   refs.$input.oninput = oninput;
+  refs.$input.onfocus = () => setState({ isOptionListHidden: false });
+  refs.$input.onblur = () => setState({ isOptionListHidden: true });
 
   refs.$optionList = createElement(
     'div',
