@@ -24,7 +24,7 @@ const createElement = (
       .forEach(child => el.appendChild(child));
   } else if (typeof children === 'string' || typeof children === 'number') {
     el.appendChild(document.createTextNode(children));
-  } else {
+  } else if (children instanceof HTMLElement) {
     el.appendChild(children);
   }
   return el;
