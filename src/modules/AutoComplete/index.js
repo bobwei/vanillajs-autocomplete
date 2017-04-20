@@ -38,7 +38,7 @@ const createAutoComplete = ({
   subscribe(watch(state => state.data, () => {
     refs.$optionList = replace(
       createElement(
-        'div',
+        'ul',
         {},
         getState().data.map(props => createElement(Option, props)),
       ),
