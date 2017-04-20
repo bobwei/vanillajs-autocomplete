@@ -5,8 +5,9 @@ const createAutoComplete = ({
   el,
   data,
 }) => {
-  const $input = el;
-  const $optionList = createElement(
+  const refs = {};
+  refs.$input = el;
+  refs.$optionList = createElement(
     'div',
     {},
     data.map(({ label }) => (
@@ -14,7 +15,7 @@ const createAutoComplete = ({
     )),
   );
 
-  insertBefore($optionList, $input);
+  insertBefore(refs.$optionList, refs.$input);
 };
 
 export default createAutoComplete;
