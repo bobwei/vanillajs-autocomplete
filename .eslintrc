@@ -1,0 +1,21 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [
+  ],
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "no-console": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {
+        "extensions": ["*", ".js"]
+      }
+    }
+  }
+}
