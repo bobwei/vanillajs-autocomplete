@@ -1,4 +1,5 @@
 import AutoComplete from 'modules/AutoComplete';
+import 'modules/AutoComplete/index.scss';
 
 import items from './data/items';
 import './index.scss';

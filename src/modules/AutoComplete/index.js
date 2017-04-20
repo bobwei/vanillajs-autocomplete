@@ -31,7 +31,7 @@ const createAutoComplete = ({
     {},
     getState().data.map(props => createElement(Option, props)),
   );
-  refs.$container = createElement(Container, { el }, refs.$optionList);
+  refs.$container = createElement(Container, { el, className: 'auto-complete-container' }, refs.$optionList);
 
   /* handle data change by replacing with a new $optionList */
   subscribe(watch(state => state.data, () => {
