@@ -3,13 +3,13 @@ import path from 'path';
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-const SRC_PATH = 'src';
-const BUILD_PATH = 'dist';
+const SRC_PATH = path.resolve(__dirname, '../example');
+const BUILD_PATH = path.resolve(__dirname, '../dist');
 const PUBLIC_PATH = 'assets/';
 const BUNDLE_NAME = 'bundle.js';
 
 const config = {
-  context: path.join(__dirname, SRC_PATH),
+  context: SRC_PATH,
   entry: './index.js',
   module: {
     loaders: [
@@ -43,11 +43,11 @@ const config = {
   ],
   output: {
     filename: BUNDLE_NAME,
-    path: path.join(__dirname, BUILD_PATH),
+    path: BUILD_PATH,
     publicPath: PUBLIC_PATH,
   },
   devServer: {
-    contentBase: path.join(__dirname, SRC_PATH),
+    contentBase: SRC_PATH,
   },
 };
 
