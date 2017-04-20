@@ -8,14 +8,10 @@ const createElement = (
   */
   const el = (typeof type === 'function') ? type({ ...props, children }) : document.createElement(type);
   /*
-    for each non-empty prop, set to element properties
+    overwritten element's properties
   */
-  Object
-    .keys(props)
-    .filter(key => props[key] !== undefined)
-    .forEach((key) => {
-      el[key] = props[key];
-    });
+  Object.assign(el, props);
+  Object.assign(el.style, props.style);
   /*
     append children to the element
   */
