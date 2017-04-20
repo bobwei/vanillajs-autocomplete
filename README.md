@@ -1,3 +1,3 @@
-# Webpack Boilerplate
+# Vanillajs AutoComplete
 
-This is a webpack boilerplate with batteries included to speed up project initiation.
+This is a demo project for showing auto-complete functionality using vanillajs.
