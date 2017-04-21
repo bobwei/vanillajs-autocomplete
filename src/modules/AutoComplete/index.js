@@ -8,6 +8,7 @@ import watch from 'modules/utils/watch';
 import Container from './components/Container';
 import Option from './components/Option';
 import oninputHandler from './eventHandlers/oninput';
+import oninputselectHandler from './eventHandlers/oninputselect';
 
 const createAutoComplete = ({
   el,
@@ -25,11 +26,12 @@ const createAutoComplete = ({
   refs.$input.oninput = oninput;
   refs.$input.onfocus = () => setState({ isOptionListHidden: false });
   refs.$input.onblur = () => setState({ isOptionListHidden: true });
+  const onoptionselect = oninputselectHandler({ $input: refs.$input });
 
   refs.$optionList = createElement(
     'ul',
     {},
-    getState().data.map(props => createElement(Option, props)),
+    getState().data.map(props => createElement(Option, { ...props, onoptionselect })),
   );
   refs.$container = createElement(Container, { el, className: 'auto-complete-container' }, refs.$optionList);
   toggleDisplay(refs.$container)(getState().isOptionListHidden);
@@ -40,7 +42,7 @@ const createAutoComplete = ({
       createElement(
         'ul',
         {},
-        getState().data.map(props => createElement(Option, props)),
+        getState().data.map(props => createElement(Option, { ...props, onoptionselect })),
       ),
       refs.$optionList,
     );
