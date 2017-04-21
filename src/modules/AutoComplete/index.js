@@ -75,7 +75,7 @@ const createAutoComplete = ({
     getEl: () => refs.$optionList,
   })));
 
-  /* handler value change */
+  /* handle value change */
   subscribe(watch(state => state.value, createOnValueChange({ getEl: () => refs.$input })));
 
   if (data.length > 0) {
