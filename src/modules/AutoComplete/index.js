@@ -11,8 +11,9 @@ import createOnFocus from './eventHandlers/input/createOnFocus';
 import createOnBlur from './eventHandlers/input/createOnBlur';
 import createOnInput from './eventHandlers/input/createOnInput';
 import createOnKeyDown from './eventHandlers/input/createOnKeyDown';
-import createOnSelect from './eventHandlers/createOnSelect';
-import createOnFocusIndexChange from './eventHandlers/createOnFocusIndexChange';
+import createOnSelect from './eventHandlers/option/createOnSelect';
+import createOnFocusIndexChange from './eventHandlers/option/createOnFocusIndexChange';
+import createOnHover from './eventHandlers/option/createOnHover';
 
 const createAutoComplete = ({
   el,
@@ -27,6 +28,7 @@ const createAutoComplete = ({
   const refs = {};
 
   refs.$input = el;
+  /* input event handlers */
   Object.assign(refs.$input, {
     oninput: createOnInput({ data, setState }),
     onfocus: createOnFocus({ setState }),
@@ -34,14 +36,15 @@ const createAutoComplete = ({
     onkeydown: createOnKeyDown({ setState, getState }),
   });
 
+  /* option event handlers */
   const onselect = createOnSelect({ $input: refs.$input });
-  const onoptionhover = e => setState({ focusIndex: e.target.dataset.index });
+  const onhover = createOnHover({ setState });
 
   refs.$optionList = createElement(
     'ul',
     {},
     getState().data.map((props, index) => createElement(Option, {
-      ...props, onselect, onhover: onoptionhover, index,
+      ...props, onselect, onhover, index,
     })),
   );
   refs.$container = createElement(Container, { el, className: 'auto-complete-container' }, refs.$optionList);
@@ -54,7 +57,7 @@ const createAutoComplete = ({
         'ul',
         {},
         getState().data.map((props, index) => createElement(Option, {
-          ...props, onselect, onhover: onoptionhover, index,
+          ...props, onselect, onhover, index,
         })),
       ),
       refs.$optionList,
