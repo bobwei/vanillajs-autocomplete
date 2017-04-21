@@ -2,8 +2,10 @@ const createOnFocusIndexChange = ({
   getEl,
 }) => (focusIndex, previousFocusIndex) => {
   const el = getEl();
-  el.children[focusIndex].classList.add('focus');
-  if (previousFocusIndex >= 0) {
+  if (el.children[focusIndex]) {
+    el.children[focusIndex].classList.add('focus');
+  }
+  if (el.children[previousFocusIndex]) {
     el.children[previousFocusIndex].classList.remove('focus');
   }
 };
