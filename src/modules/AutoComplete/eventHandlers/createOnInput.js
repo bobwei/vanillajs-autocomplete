@@ -1,4 +1,4 @@
-const oninput = ({
+const createOnInput = ({
   data,
   setState,
   valueSelector = e => e.target.value,
@@ -8,4 +8,4 @@ const oninput = ({
   setState({ data: data.filter(filterOption({ q })) });
 };
 
-export default oninput;
+export default createOnInput;

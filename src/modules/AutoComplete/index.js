@@ -7,7 +7,7 @@ import watch from 'modules/utils/watch';
 
 import Container from './components/Container';
 import Option from './components/Option';
-import oninputHandler from './eventHandlers/oninput';
+import createOnInput from './eventHandlers/createOnInput';
 import createOnSelect from './eventHandlers/createOnSelect';
 import onfocusindexchange from './eventHandlers/onfocusindexchange';
 
@@ -22,7 +22,7 @@ const createAutoComplete = ({
   });
   const { getState, setState, subscribe } = store;
   const refs = {};
-  const oninput = oninputHandler({ data, setState });
+  const oninput = createOnInput({ data, setState });
 
   refs.$input = el;
   refs.$input.oninput = oninput;
