@@ -9,6 +9,11 @@ const createOnKeyDown = ({
     setState({ focusIndex: Math.min(getState().data.length, getState().focusIndex + 1) });
   } else if (value === 13) {
     e.preventDefault();
+    const { data, focusIndex } = getState();
+    setState({
+      value: data[focusIndex].value,
+      isOptionListHidden: true,
+    });
   }
 };
 

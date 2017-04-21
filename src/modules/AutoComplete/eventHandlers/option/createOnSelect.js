@@ -1,9 +1,9 @@
 /* eslint-disable no-param-reassign */
 const createOnSelect = ({
-  $input,
+  setState,
   valueSelector = e => e.target.dataset.value,
 }) => (e) => {
-  $input.value = valueSelector(e);
+  setState({ value: valueSelector(e) });
 };
 
 export default createOnSelect;

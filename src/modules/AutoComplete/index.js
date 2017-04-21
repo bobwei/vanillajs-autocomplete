@@ -11,6 +11,7 @@ import createOnFocus from './eventHandlers/input/createOnFocus';
 import createOnBlur from './eventHandlers/input/createOnBlur';
 import createOnInput from './eventHandlers/input/createOnInput';
 import createOnKeyDown from './eventHandlers/input/createOnKeyDown';
+import createOnValueChange from './eventHandlers/input/createOnValueChange';
 import createOnSelect from './eventHandlers/option/createOnSelect';
 import createOnFocusIndexChange from './eventHandlers/option/createOnFocusIndexChange';
 import createOnHover from './eventHandlers/option/createOnHover';
@@ -23,6 +24,7 @@ const createAutoComplete = ({
     data,
     isOptionListHidden: true,
     focusIndex: -1,
+    value: undefined,
   });
   const { getState, setState, subscribe } = store;
   const refs = {};
@@ -37,7 +39,7 @@ const createAutoComplete = ({
   });
 
   /* option event handlers */
-  const onselect = createOnSelect({ $input: refs.$input });
+  const onselect = createOnSelect({ setState });
   const onhover = createOnHover({ setState });
 
   refs.$optionList = createElement(
@@ -68,7 +70,12 @@ const createAutoComplete = ({
   subscribe(watch(state => state.isOptionListHidden, toggleDisplay(refs.$container)));
 
   /* handle focusIndex change */
-  subscribe(watch(state => state.focusIndex, createOnFocusIndexChange(() => refs.$optionList)));
+  subscribe(watch(state => state.focusIndex, createOnFocusIndexChange({
+    getEl: () => refs.$optionList,
+  })));
+
+  /* handler value change */
+  subscribe(watch(state => state.value, createOnValueChange({ getEl: () => refs.$input })));
 
   if (data.length > 0) {
     setState({ focusIndex: 0 });
