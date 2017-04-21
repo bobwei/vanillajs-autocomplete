@@ -7,10 +7,10 @@ import watch from 'modules/utils/watch';
 
 import Container from './components/Container';
 import Option from './components/Option';
-import createOnFocus from './eventHandlers/createOnFocus';
-import createOnBlur from './eventHandlers/createOnBlur';
-import createOnInput from './eventHandlers/createOnInput';
-import createOnKeyDown from './eventHandlers/createOnKeyDown';
+import createOnFocus from './eventHandlers/input/createOnFocus';
+import createOnBlur from './eventHandlers/input/createOnBlur';
+import createOnInput from './eventHandlers/input/createOnInput';
+import createOnKeyDown from './eventHandlers/input/createOnKeyDown';
 import createOnSelect from './eventHandlers/createOnSelect';
 import createOnFocusIndexChange from './eventHandlers/createOnFocusIndexChange';
 
