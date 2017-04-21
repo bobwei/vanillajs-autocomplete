@@ -7,7 +7,10 @@ import watch from 'modules/utils/watch';
 
 import Container from './components/Container';
 import Option from './components/Option';
+import createOnFocus from './eventHandlers/createOnFocus';
+import createOnBlur from './eventHandlers/createOnBlur';
 import createOnInput from './eventHandlers/createOnInput';
+import createOnKeyDown from './eventHandlers/createOnKeyDown';
 import createOnSelect from './eventHandlers/createOnSelect';
 import createOnFocusIndexChange from './eventHandlers/createOnFocusIndexChange';
 
@@ -22,22 +25,15 @@ const createAutoComplete = ({
   });
   const { getState, setState, subscribe } = store;
   const refs = {};
-  const oninput = createOnInput({ data, setState });
 
   refs.$input = el;
-  refs.$input.oninput = oninput;
-  refs.$input.onfocus = () => setState({ isOptionListHidden: false });
-  refs.$input.onblur = () => setState({ isOptionListHidden: true });
-  refs.$input.onkeydown = (e) => {
-    const value = e.keyCode;
-    if (value === 38) {
-      setState({ focusIndex: Math.max(0, getState().focusIndex - 1) });
-    } else if (value === 40) {
-      setState({ focusIndex: Math.min(getState().data.length, getState().focusIndex + 1) });
-    } else if (value === 13) {
-      e.preventDefault();
-    }
-  };
+  Object.assign(refs.$input, {
+    oninput: createOnInput({ data, setState }),
+    onfocus: createOnFocus({ setState }),
+    onblur: createOnBlur({ setState }),
+    onkeydown: createOnKeyDown({ setState, getState }),
+  });
+
   const onselect = createOnSelect({ $input: refs.$input });
   const onoptionhover = e => setState({ focusIndex: e.target.dataset.index });
 
