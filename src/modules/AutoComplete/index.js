@@ -71,6 +71,7 @@ const createAutoComplete = ({
 
   /* handle focusIndex change */
   subscribe(watch(state => state.focusIndex, createOnFocusIndexChange({
+    getContainer: () => refs.$container,
     getEl: () => refs.$optionList,
   })));
 
