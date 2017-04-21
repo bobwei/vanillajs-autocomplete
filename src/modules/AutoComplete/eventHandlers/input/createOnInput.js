@@ -10,6 +10,7 @@ const createOnInput = ({
   setState({
     data: data.filter(filterOption({ q })),
     focusIndex: 0,
+    isOptionListHidden: false,
   });
 };
 
