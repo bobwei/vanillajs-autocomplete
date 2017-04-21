@@ -28,6 +28,16 @@ const createAutoComplete = ({
   refs.$input.oninput = oninput;
   refs.$input.onfocus = () => setState({ isOptionListHidden: false });
   refs.$input.onblur = () => setState({ isOptionListHidden: true });
+  refs.$input.onkeydown = (e) => {
+    const value = e.keyCode;
+    if (value === 38) {
+      setState({ focusIndex: Math.max(0, getState().focusIndex - 1) });
+    } else if (value === 40) {
+      setState({ focusIndex: Math.min(getState().data.length, getState().focusIndex + 1) });
+    } else if (value === 13) {
+      e.preventDefault();
+    }
+  };
   const onoptionselect = oninputselectHandler({ $input: refs.$input });
   const onoptionhover = e => setState({ focusIndex: e.target.dataset.index });
 
@@ -60,6 +70,10 @@ const createAutoComplete = ({
 
   /* handle focusIndex change */
   subscribe(watch(state => state.focusIndex, onfocusindexchange(() => refs.$optionList)));
+
+  if (data.length > 0) {
+    setState({ focusIndex: 0 });
+  }
 
   insertBefore(refs.$container, refs.$input);
 };
