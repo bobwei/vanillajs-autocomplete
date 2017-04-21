@@ -9,7 +9,7 @@ import Container from './components/Container';
 import Option from './components/Option';
 import createOnInput from './eventHandlers/createOnInput';
 import createOnSelect from './eventHandlers/createOnSelect';
-import onfocusindexchange from './eventHandlers/onfocusindexchange';
+import createOnFocusIndexChange from './eventHandlers/createOnFocusIndexChange';
 
 const createAutoComplete = ({
   el,
@@ -69,7 +69,7 @@ const createAutoComplete = ({
   subscribe(watch(state => state.isOptionListHidden, toggleDisplay(refs.$container)));
 
   /* handle focusIndex change */
-  subscribe(watch(state => state.focusIndex, onfocusindexchange(() => refs.$optionList)));
+  subscribe(watch(state => state.focusIndex, createOnFocusIndexChange(() => refs.$optionList)));
 
   if (data.length > 0) {
     setState({ focusIndex: 0 });

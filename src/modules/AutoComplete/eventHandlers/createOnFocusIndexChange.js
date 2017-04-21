@@ -1,4 +1,4 @@
-const onfocusindexchange = getEl => (focusIndex, previousFocusIndex) => {
+const createOnFocusIndexChange = getEl => (focusIndex, previousFocusIndex) => {
   const el = getEl();
   el.children[focusIndex].classList.add('focus');
   if (previousFocusIndex >= 0) {
@@ -6,4 +6,4 @@ const onfocusindexchange = getEl => (focusIndex, previousFocusIndex) => {
   }
 };
 
-export default onfocusindexchange;
+export default createOnFocusIndexChange;
