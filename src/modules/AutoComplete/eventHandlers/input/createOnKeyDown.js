@@ -10,8 +10,10 @@ const createOnKeyDown = ({
   } else if (value === 13) {
     e.preventDefault();
     const { data, focusIndex } = getState();
+    if (data[focusIndex]) {
+      setState({ value: data[focusIndex].value });
+    }
     setState({
-      value: data[focusIndex].value,
       isOptionListHidden: true,
     });
   }
