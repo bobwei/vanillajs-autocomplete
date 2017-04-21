@@ -9,6 +9,7 @@ import Container from './components/Container';
 import Option from './components/Option';
 import oninputHandler from './eventHandlers/oninput';
 import oninputselectHandler from './eventHandlers/oninputselect';
+import onfocusindexchange from './eventHandlers/onfocusindexchange';
 
 const createAutoComplete = ({
   el,
@@ -17,6 +18,7 @@ const createAutoComplete = ({
   const store = createStore({
     data,
     isOptionListHidden: true,
+    focusIndex: -1,
   });
   const { getState, setState, subscribe } = store;
   const refs = {};
@@ -27,11 +29,14 @@ const createAutoComplete = ({
   refs.$input.onfocus = () => setState({ isOptionListHidden: false });
   refs.$input.onblur = () => setState({ isOptionListHidden: true });
   const onoptionselect = oninputselectHandler({ $input: refs.$input });
+  const onoptionhover = e => setState({ focusIndex: e.target.dataset.index });
 
   refs.$optionList = createElement(
     'ul',
     {},
-    getState().data.map(props => createElement(Option, { ...props, onselect: onoptionselect })),
+    getState().data.map((props, index) => createElement(Option, {
+      ...props, onselect: onoptionselect, onhover: onoptionhover, index,
+    })),
   );
   refs.$container = createElement(Container, { el, className: 'auto-complete-container' }, refs.$optionList);
   toggleDisplay(refs.$container)(getState().isOptionListHidden);
@@ -42,7 +47,9 @@ const createAutoComplete = ({
       createElement(
         'ul',
         {},
-        getState().data.map(props => createElement(Option, { ...props, onselect: onoptionselect })),
+        getState().data.map((props, index) => createElement(Option, {
+          ...props, onselect: onoptionselect, onhover: onoptionhover, index,
+        })),
       ),
       refs.$optionList,
     );
@@ -50,6 +57,9 @@ const createAutoComplete = ({
 
   /* handle isOptionListHidden change */
   subscribe(watch(state => state.isOptionListHidden, toggleDisplay(refs.$container)));
+
+  /* handle focusIndex change */
+  subscribe(watch(state => state.focusIndex, onfocusindexchange(() => refs.$optionList)));
 
   insertBefore(refs.$container, refs.$input);
 };

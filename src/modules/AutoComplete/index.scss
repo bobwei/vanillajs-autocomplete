@@ -17,16 +17,16 @@
       padding: 5px 10px;
       cursor: pointer;
 
+      &.focus {
+        background-color: #eee;
+      }
+
       &:first-child {
         padding-top: 10px;
       }
 
       &:last-child {
         padding-bottom: 10px;
-      }
-
-      &:hover {
-        background-color: #eee;
       }
     }
   }
