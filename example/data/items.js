@@ -1,5 +1,5 @@
 const items = [...(new Array(100))].map((obj, j) => ({
-  value: j,
+  value: `label ${j}`,
   label: `label ${j}`,
 }));
 
