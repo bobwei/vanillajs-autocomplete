@@ -1,7 +1,9 @@
 const createOnHover = ({
   setState,
 }) => (e) => {
-  setState({ focusIndex: e.target.dataset.index });
+  setState({
+    focusIndex: parseInt(e.target.dataset.index, 10),
+  });
 };
 
 export default createOnHover;
