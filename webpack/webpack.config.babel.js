@@ -4,7 +4,7 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const SRC_PATH = path.resolve(__dirname, '../example');
-const BUILD_PATH = path.resolve(__dirname, '../dist');
+const BUILD_PATH = path.resolve(__dirname, '../dist/assets');
 const PUBLIC_PATH = 'assets/';
 const BUNDLE_NAME = 'bundle.js';
 
