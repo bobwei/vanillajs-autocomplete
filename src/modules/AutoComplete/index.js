@@ -8,7 +8,7 @@ import watch from 'modules/utils/watch';
 import Container from './components/Container';
 import Option from './components/Option';
 import oninputHandler from './eventHandlers/oninput';
-import oninputselectHandler from './eventHandlers/oninputselect';
+import createOnSelect from './eventHandlers/createOnSelect';
 import onfocusindexchange from './eventHandlers/onfocusindexchange';
 
 const createAutoComplete = ({
@@ -38,14 +38,14 @@ const createAutoComplete = ({
       e.preventDefault();
     }
   };
-  const onoptionselect = oninputselectHandler({ $input: refs.$input });
+  const onselect = createOnSelect({ $input: refs.$input });
   const onoptionhover = e => setState({ focusIndex: e.target.dataset.index });
 
   refs.$optionList = createElement(
     'ul',
     {},
     getState().data.map((props, index) => createElement(Option, {
-      ...props, onselect: onoptionselect, onhover: onoptionhover, index,
+      ...props, onselect, onhover: onoptionhover, index,
     })),
   );
   refs.$container = createElement(Container, { el, className: 'auto-complete-container' }, refs.$optionList);
@@ -58,7 +58,7 @@ const createAutoComplete = ({
         'ul',
         {},
         getState().data.map((props, index) => createElement(Option, {
-          ...props, onselect: onoptionselect, onhover: onoptionhover, index,
+          ...props, onselect, onhover: onoptionhover, index,
         })),
       ),
       refs.$optionList,
