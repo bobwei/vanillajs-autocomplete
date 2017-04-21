@@ -1,10 +1,10 @@
 import createElement from 'modules/dom/createElement';
 
-const Option = ({ value, label, onoptionselect }) => {
+const Option = ({ value, label, onselect }) => {
   const el = createElement(
     'li',
     {
-      onmousedown: onoptionselect,
+      onmousedown: onselect,
     },
     label,
   );

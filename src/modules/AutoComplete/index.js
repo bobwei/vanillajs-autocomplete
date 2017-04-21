@@ -31,7 +31,7 @@ const createAutoComplete = ({
   refs.$optionList = createElement(
     'ul',
     {},
-    getState().data.map(props => createElement(Option, { ...props, onoptionselect })),
+    getState().data.map(props => createElement(Option, { ...props, onselect: onoptionselect })),
   );
   refs.$container = createElement(Container, { el, className: 'auto-complete-container' }, refs.$optionList);
   toggleDisplay(refs.$container)(getState().isOptionListHidden);
@@ -42,7 +42,7 @@ const createAutoComplete = ({
       createElement(
         'ul',
         {},
-        getState().data.map(props => createElement(Option, { ...props, onoptionselect })),
+        getState().data.map(props => createElement(Option, { ...props, onselect: onoptionselect })),
       ),
       refs.$optionList,
     );
