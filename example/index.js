@@ -7,10 +7,11 @@ import './index.scss';
 document.addEventListener('DOMContentLoaded', () => {
   Array
     .from(document.querySelectorAll('input'))
-    .forEach(el => (
+    .forEach((el, i) => (
       AutoComplete({
         el,
         data: items,
+        getPersistKey: () => `auto-complete:history:${i}`,
       })
     ));
 });

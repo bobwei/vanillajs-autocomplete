@@ -3,6 +3,7 @@ import insertBefore from 'modules/dom/insertBefore';
 import replace from 'modules/dom/replace';
 import toggleDisplay from 'modules/dom/toggleDisplay';
 import createStore from 'modules/stores/createStore';
+import persistStore from 'modules/persistences/persistStore';
 import watch from 'modules/utils/watch';
 
 import Container from './components/Container';
@@ -19,13 +20,16 @@ import createOnHover from './eventHandlers/option/createOnHover';
 const createAutoComplete = ({
   el,
   data,
+  getPersistKey,
 }) => {
   const store = createStore({
     data,
     isOptionListHidden: true,
     focusIndex: -1,
     value: undefined,
+    history: [],
   });
+  persistStore(store, { persistProp: ['history'], getPersistKey });
   const { getState, setState, subscribe } = store;
   const refs = {};
 
@@ -77,6 +81,15 @@ const createAutoComplete = ({
 
   /* handle value change */
   subscribe(watch(state => state.value, createOnValueChange({ getEl: () => refs.$input })));
+
+  /* when value selected, push to history */
+  subscribe(watch(state => state.value, (value) => {
+    setState({
+      history: [value, ...getState().history],
+    });
+  }));
+
+  subscribe(watch(state => state.history, console.log));
 
   if (data.length > 0) {
     setState({ focusIndex: 0 });
