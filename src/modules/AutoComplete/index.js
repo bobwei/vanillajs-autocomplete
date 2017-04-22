@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import createElement from 'modules/dom/createElement';
 import insertBefore from 'modules/dom/insertBefore';
 import replace from 'modules/dom/replace';
@@ -7,6 +8,7 @@ import persistStore from 'modules/persistences/persistStore';
 import watch from 'modules/utils/watch';
 
 import Container from './components/Container';
+import OptionList from './components/OptionList';
 import Option from './components/Option';
 import createOnFocus from './eventHandlers/input/createOnFocus';
 import createOnBlur from './eventHandlers/input/createOnBlur';
@@ -46,26 +48,14 @@ const createAutoComplete = ({
   const onselect = createOnSelect({ setState });
   const onhover = createOnHover({ setState });
 
-  refs.$optionList = createElement(
-    'ul',
-    {},
-    getState().data.map((props, index) => createElement(Option, {
-      ...props, onselect, onhover, index,
-    })),
-  );
+  refs.$optionList = createElement(OptionList, { data: getState().data, Option, onselect, onhover });
   refs.$container = createElement(Container, { el, className: 'auto-complete-container' }, refs.$optionList);
   toggleDisplay(refs.$container)(getState().isOptionListHidden);
 
   /* handle data change by replacing with a new $optionList */
   subscribe(watch(state => state.data, () => {
     refs.$optionList = replace(
-      createElement(
-        'ul',
-        {},
-        getState().data.map((props, index) => createElement(Option, {
-          ...props, onselect, onhover, index,
-        })),
-      ),
+      createElement(OptionList, { data: getState().data, Option, onselect, onhover }),
       refs.$optionList,
     );
   }));
