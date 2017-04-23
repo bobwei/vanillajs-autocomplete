@@ -38,7 +38,7 @@ const createAutoComplete = ({
   refs.$input = el;
   /* input event handlers */
   Object.assign(refs.$input, {
-    oninput: createOnInput({ history: getState().history, data, setState }),
+    oninput: createOnInput({ data, getState, setState }),
     onfocus: createOnFocus({ setState }),
     onblur: createOnBlur({ setState }),
     onkeydown: createOnKeyDown({ setState, getState }),
