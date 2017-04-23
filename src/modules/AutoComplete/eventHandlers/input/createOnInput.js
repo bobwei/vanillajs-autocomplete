@@ -1,4 +1,7 @@
+import sortData from '../../utils/sortData';
+
 const createOnInput = ({
+  history,
   data,
   setState,
   valueSelector = e => e.target.value,
@@ -8,7 +11,7 @@ const createOnInput = ({
   /* reset focusIndex to force update */
   setState({ focusIndex: -1 });
   setState({
-    data: data.filter(filterOption({ q })),
+    data: sortData({ history }, data).filter(filterOption({ q })),
     focusIndex: 0,
     isOptionListHidden: false,
   });
