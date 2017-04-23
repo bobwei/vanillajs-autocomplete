@@ -9,7 +9,8 @@ const sortData = (
     ...[...data]
       .filter(({ value }) => historySet[value])
       .sort(({ value: valuea }, { value: valueb }) => historySet[valuea] - historySet[valueb]),
-    ...[...data].filter(({ value }) => !historySet[value]),
+    ...[...data]
+      .filter(({ value }) => !historySet[value]),
   ];
 };
 
