@@ -31,7 +31,6 @@ const createAutoComplete = ({
     value: undefined,
     history: [],
   });
-  persistStore(store, { persistProp: ['history'], getPersistKey });
   const { getState, setState, subscribe } = store;
   const refs = {};
 
@@ -87,6 +86,8 @@ const createAutoComplete = ({
   if (data.length > 0) {
     setState({ focusIndex: 0 });
   }
+
+  persistStore(store, { persistProp: ['history'], getPersistKey });
 
   insertBefore(refs.$container, refs.$input);
 };
