@@ -18,6 +18,7 @@ import createOnValueChange from './eventHandlers/input/createOnValueChange';
 import createOnSelect from './eventHandlers/option/createOnSelect';
 import createOnFocusIndexChange from './eventHandlers/option/createOnFocusIndexChange';
 import createOnHover from './eventHandlers/option/createOnHover';
+import sortData from './utils/sortData';
 
 const createAutoComplete = ({
   el,
@@ -79,8 +80,10 @@ const createAutoComplete = ({
   }));
 
   /* when history changed, force update */
-  subscribe(watch(state => state.history, () => {
-    setState({ data: [...getState().data] });
+  subscribe(watch(state => state.history, (history) => {
+    setState({
+      data: sortData({ history }, data),
+    });
   }));
 
   if (data.length > 0) {
