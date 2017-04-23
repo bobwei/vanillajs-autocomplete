@@ -48,14 +48,14 @@ const createAutoComplete = ({
   const onselect = createOnSelect({ setState });
   const onhover = createOnHover({ setState });
 
-  refs.$optionList = createElement(OptionList, { data: getState().data, Option, onselect, onhover });
+  refs.$optionList = createElement(OptionList, { data: getState().data, history: getState().history, Option, onselect, onhover });
   refs.$container = createElement(Container, { el, className: 'auto-complete-container' }, refs.$optionList);
   toggleDisplay(refs.$container)(getState().isOptionListHidden);
 
   /* handle data change by replacing with a new $optionList */
   subscribe(watch(state => state.data, () => {
     refs.$optionList = replace(
-      createElement(OptionList, { data: getState().data, Option, onselect, onhover }),
+      createElement(OptionList, { data: getState().data, history: getState().history, Option, onselect, onhover }),
       refs.$optionList,
     );
   }));
@@ -75,11 +75,14 @@ const createAutoComplete = ({
   /* when value selected, push to history */
   subscribe(watch(state => state.value, (value) => {
     setState({
-      history: [value, ...getState().history],
+      history: [...(new Set([value, ...getState().history]))],
     });
   }));
 
-  subscribe(watch(state => state.history, console.log));
+  /* when history changed, force update */
+  subscribe(watch(state => state.history, () => {
+    setState({ data: [...getState().data] });
+  }));
 
   if (data.length > 0) {
     setState({ focusIndex: 0 });

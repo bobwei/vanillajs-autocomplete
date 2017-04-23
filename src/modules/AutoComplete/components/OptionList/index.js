@@ -3,19 +3,22 @@ import createElement from 'modules/dom/createElement';
 
 const OptionList = ({
   data,
+  history,
   Option,
   children,
   ...props
-}) => (
-  createElement(
+}) => {
+  const historySet = new Set(history);
+  return createElement(
     'ul',
     {},
-    data.map((otherProps, index) => createElement(Option, {
+    data.map((dataProps, index) => createElement(Option, {
       index,
-      ...otherProps,
+      ...dataProps,
       ...props,
+      isInHistory: historySet.has(dataProps.value),
     })),
-  )
-);
+  );
+};
 
 export default OptionList;

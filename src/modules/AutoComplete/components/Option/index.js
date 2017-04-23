@@ -1,6 +1,6 @@
 import createElement from 'modules/dom/createElement';
 
-const Option = ({ index, value, label, onselect, onhover }) => {
+const Option = ({ index, value, label, onselect, onhover, isInHistory }) => {
   const el = createElement(
     'li',
     {
@@ -11,6 +11,9 @@ const Option = ({ index, value, label, onselect, onhover }) => {
   );
   el.setAttribute('data-value', value);
   el.setAttribute('data-index', index);
+  if (isInHistory) {
+    el.classList.add('is-in-history');
+  }
   return el;
 };
 

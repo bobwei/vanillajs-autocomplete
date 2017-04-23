@@ -21,6 +21,11 @@
         background-color: #eee;
       }
 
+      &.is-in-history {
+        color: #609;
+        font-weight: bold;
+      }
+
       &:first-child {
         padding-top: 10px;
       }
