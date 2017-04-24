@@ -5,6 +5,7 @@ This is a demo project for showing auto-complete functionality using vanillajs.
 - [Demo](#demo)
 - [Usage](#usage)
 - [Features](#features)
+- [Overview](./how-it-works.md)
 
 
 ## Demo
