@@ -12,3 +12,6 @@ __Components__ are functions that return elements. It's composable, reusable and
 
 __History__ is implemented simply by persisting store state to storage since store is the single source of truth for every state.
 - [src/modules/persistences/persistStore](./src/modules/persistences/persistStore)
+
+__Watch__ It's a utility function that help us subscribing to state change that we concern.
+- [src/modules/utils/watch](./src/modules/utils/watch)
