@@ -95,6 +95,11 @@ const createAutoComplete = ({
   persistStore(store, { persistProp: ['history'], getPersistKey });
 
   insertBefore(refs.$container, refs.$input);
+
+  return {
+    ...store,
+    refs,
+  };
 };
 
 export default createAutoComplete;
