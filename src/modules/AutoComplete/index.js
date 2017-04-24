@@ -26,6 +26,9 @@ const createAutoComplete = ({
   data,
   getPersistKey,
 }) => {
+  /*
+    Create store with initial state for each AutoComplete instance.
+  */
   const store = createStore({
     data,
     isOptionListHidden: true,
@@ -33,11 +36,19 @@ const createAutoComplete = ({
     value: undefined,
     history: [],
   });
+  /*
+    Store API
+  */
   const { getState, setState, subscribe } = store;
+  /*
+    Cache DOM node references for further access
+  */
   const refs = {};
 
   refs.$input = el;
-  /* input event handlers */
+  /*
+    Create event handlers and assign to input
+  */
   Object.assign(refs.$input, {
     oninput: createOnInput({ data, getState, setState }),
     onfocus: createOnFocus({ setState }),
@@ -45,7 +56,9 @@ const createAutoComplete = ({
     onkeydown: createOnKeyDown({ setState, getState }),
   });
 
-  /* option event handlers */
+  /*
+    Create event handlers for Option component
+  */
   const onselect = createOnSelect({ setState });
   const onhover = createOnHover({ setState });
   const onremove = createOnRemove({ getState, setState });
@@ -54,7 +67,9 @@ const createAutoComplete = ({
   refs.$container = createElement(Container, { el, className: 'auto-complete-container' }, refs.$optionList);
   toggleDisplay(refs.$container)(getState().isOptionListHidden);
 
-  /* handle data change by replacing with a new $optionList */
+  /*
+    Subscribe to data change and rebuild the list if needed
+  */
   subscribe(watch(state => state.data, () => {
     refs.$optionList = replace(
       createElement(OptionList, { data: getState().data, history: getState().history, Option, onselect, onhover, onremove }),
@@ -62,26 +77,36 @@ const createAutoComplete = ({
     );
   }));
 
-  /* handle isOptionListHidden change */
+  /*
+    Subscribe to isOptionListHidden change and toggle display UI
+  */
   subscribe(watch(state => state.isOptionListHidden, toggleDisplay(refs.$container)));
 
-  /* handle focusIndex change */
+  /*
+    Subscribe to focusIndex change and update classNames to Option
+  */
   subscribe(watch(state => state.focusIndex, createOnFocusIndexChange({
     getContainer: () => refs.$container,
     getEl: () => refs.$optionList,
   })));
 
-  /* handle value change */
+  /*
+    Subscribe to value change and update input value
+  */
   subscribe(watch(state => state.value, createOnValueChange({ getEl: () => refs.$input })));
 
-  /* when value selected, push to history */
+  /*
+    Subscribe to value change and push value to history
+  */
   subscribe(watch(state => state.value, (value) => {
     setState({
       history: [...(new Set([value, ...getState().history]))],
     });
   }));
 
-  /* when history changed, force update */
+  /*
+    Subscribe to history change and update data
+  */
   subscribe(watch(state => state.history, (history) => {
     setState({
       data: sortData({ history }, data),
@@ -92,10 +117,16 @@ const createAutoComplete = ({
     setState({ focusIndex: 0 });
   }
 
+  /*
+    Persist store by subscribing to store change and persist to storage for every change
+  */
   persistStore(store, { persistProp: ['history'], getPersistKey });
 
   insertBefore(refs.$container, refs.$input);
 
+  /*
+    Export instance variables so that we can do further access
+  */
   return {
     ...store,
     refs,
