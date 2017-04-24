@@ -16,6 +16,10 @@ const createOnKeyDown = ({
     setState({
       isOptionListHidden: true,
     });
+  } else if (value === 27) {
+    setState({
+      isOptionListHidden: !getState().isOptionListHidden,
+    });
   }
 };
 
