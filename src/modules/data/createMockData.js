@@ -1,8 +1,5 @@
-const createMockData = () => (
-  [...(new Array(100))].map((obj, j) => ({
-    value: `value ${j}`,
-  }))
-);
+/* eslint-disable global-require */
+const createMockData = () => require('./data.json');
 
 export default createMockData;
 
