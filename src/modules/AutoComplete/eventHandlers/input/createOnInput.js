@@ -5,7 +5,7 @@ const createOnInput = ({
   getState,
   setState,
   valueSelector = e => e.target.value,
-  filterOption = ({ q }) => ({ label }) => label.indexOf(q) > -1,
+  filterOption = ({ q }) => ({ value }) => value.indexOf(q) > -1,
 }) => (e) => {
   const q = valueSelector(e);
   /* reset focusIndex to force update */

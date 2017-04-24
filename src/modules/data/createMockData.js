@@ -1,7 +1,6 @@
 const createMockData = () => (
   [...(new Array(100))].map((obj, j) => ({
-    value: `label ${j}`,
-    label: `label ${j}`,
+    value: `value ${j}`,
   }))
 );
 
