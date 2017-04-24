@@ -4,6 +4,7 @@ This is a demo project for showing auto-complete functionality using vanillajs.
 
 - [Demo](#demo)
 - [Usage](#usage)
+- [Features](#features)
 
 
 ## Demo
@@ -52,3 +53,12 @@ AutoComplete({
   getPersistKey: () => 'auto-complete:history:0',
 });
 ```
+
+
+## Features
+
+- Use store for state management and one way data flow
+- Create store for each AutoComplete instance
+- Subscribe to state change and update corresponding UI
+- Declarative DOM manipulation
+- Subscribe to state change and persist to storage
