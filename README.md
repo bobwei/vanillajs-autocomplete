@@ -19,7 +19,7 @@ There is also a prebuilt version that works locally. Please open dist/index.html
 ## Usage
 
 index.html
-```
+```html
 <form>
   <div class="form-group">
     <label>Search from static source</label>
@@ -36,7 +36,7 @@ index.html
 ```
 
 index.js
-```
+```js
 import AutoComplete from 'modules/AutoComplete';
 
 const el = document.querySelector('input');
