@@ -43,8 +43,11 @@ const el = document.querySelector('input');
 AutoComplete({
   el,
   data: [{
-    value: '',
-    thumbnail: '',
+    value: 'B612',
+    thumbnail: 'https://d.line-scdn.net/stf/line-lp/family/en/b612_190.png',
+  }, {
+    value: 'LOOKS',
+    thumbnail: 'https://d.line-scdn.net/stf/line-lp/line_looks_190x190.png',
   }],
   getPersistKey: () => 'auto-complete:history:0',
 });
