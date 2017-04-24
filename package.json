@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack/webpack.config.babel.js",
-    "build": "yarn run clean && yarn run copy && NODE_ENV=production webpack -p --config webpack/webpack.config.babel.js",
+    "build": "yarn run clean && yarn run copy && NODE_ENV=production webpack -p --config webpack/webpack.config.babel.js && yarn run create-mock-data",
     "copy": "copyfiles -f ./example/index.html ./dist",
     "clean": "rimraf dist/*",
+    "create-mock-data": "babel-node src/modules/data/createMockData > dist/data.json",
     "deploy:gh-pages": "gh-pages -d dist"
   },
   "author": "bob61016@gmail.com",
