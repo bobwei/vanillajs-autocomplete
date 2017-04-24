@@ -1,15 +1,6 @@
 import createElement from 'modules/dom/createElement';
 
 const Option = ({ index, value, thumbnail, onselect, onhover, isInHistory, onremove }) => {
-  const btnRemove = createElement(
-    'span',
-    {
-      className: 'remove',
-      onmousedown: onremove,
-    },
-    'remove',
-  );
-  btnRemove.setAttribute('data-value', value);
   const el = createElement(
     'li',
     {
@@ -30,13 +21,22 @@ const Option = ({ index, value, thumbnail, onselect, onhover, isInHistory, onrem
         },
         value,
       ),
-      btnRemove,
     ],
   );
   el.setAttribute('data-value', value);
   el.setAttribute('data-index', index);
   if (isInHistory) {
     el.classList.add('is-in-history');
+    const btnRemove = createElement(
+      'span',
+      {
+        className: 'remove',
+        onmousedown: onremove,
+      },
+      'remove',
+    );
+    btnRemove.setAttribute('data-value', value);
+    el.appendChild(btnRemove);
   }
   return el;
 };
