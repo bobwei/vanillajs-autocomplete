@@ -1,6 +1,6 @@
 import createElement from 'modules/dom/createElement';
 
-const Option = ({ index, value, onselect, onhover, isInHistory, onremove }) => {
+const Option = ({ index, value, thumbnail, onselect, onhover, isInHistory, onremove }) => {
   const btnRemove = createElement(
     'span',
     {
@@ -18,8 +18,16 @@ const Option = ({ index, value, onselect, onhover, isInHistory, onremove }) => {
     },
     [
       createElement(
-        'span',
-        {},
+        'img',
+        {
+          src: thumbnail,
+        },
+      ),
+      createElement(
+        'div',
+        {
+          className: 'text',
+        },
         value,
       ),
       btnRemove,

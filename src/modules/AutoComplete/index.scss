@@ -18,6 +18,18 @@
       cursor: pointer;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+
+      img {
+        min-width: 30px;
+        min-height: 30px;
+        max-height: 30px;
+      }
+
+      .text {
+        flex-grow: 1;
+        padding-left: 10px;
+      }
 
       &.focus {
         background-color: #eee;
