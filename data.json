@@ -1,402 +1,100 @@
-[
-  {
-    "value": "label 0",
-    "label": "label 0"
-  },
-  {
-    "value": "label 1",
-    "label": "label 1"
-  },
-  {
-    "value": "label 2",
-    "label": "label 2"
-  },
-  {
-    "value": "label 3",
-    "label": "label 3"
-  },
-  {
-    "value": "label 4",
-    "label": "label 4"
-  },
-  {
-    "value": "label 5",
-    "label": "label 5"
-  },
-  {
-    "value": "label 6",
-    "label": "label 6"
-  },
-  {
-    "value": "label 7",
-    "label": "label 7"
-  },
-  {
-    "value": "label 8",
-    "label": "label 8"
-  },
-  {
-    "value": "label 9",
-    "label": "label 9"
-  },
-  {
-    "value": "label 10",
-    "label": "label 10"
-  },
-  {
-    "value": "label 11",
-    "label": "label 11"
-  },
-  {
-    "value": "label 12",
-    "label": "label 12"
-  },
-  {
-    "value": "label 13",
-    "label": "label 13"
-  },
-  {
-    "value": "label 14",
-    "label": "label 14"
-  },
-  {
-    "value": "label 15",
-    "label": "label 15"
-  },
-  {
-    "value": "label 16",
-    "label": "label 16"
-  },
-  {
-    "value": "label 17",
-    "label": "label 17"
-  },
-  {
-    "value": "label 18",
-    "label": "label 18"
-  },
-  {
-    "value": "label 19",
-    "label": "label 19"
-  },
-  {
-    "value": "label 20",
-    "label": "label 20"
-  },
-  {
-    "value": "label 21",
-    "label": "label 21"
-  },
-  {
-    "value": "label 22",
-    "label": "label 22"
-  },
-  {
-    "value": "label 23",
-    "label": "label 23"
-  },
-  {
-    "value": "label 24",
-    "label": "label 24"
-  },
-  {
-    "value": "label 25",
-    "label": "label 25"
-  },
-  {
-    "value": "label 26",
-    "label": "label 26"
-  },
-  {
-    "value": "label 27",
-    "label": "label 27"
-  },
-  {
-    "value": "label 28",
-    "label": "label 28"
-  },
-  {
-    "value": "label 29",
-    "label": "label 29"
-  },
-  {
-    "value": "label 30",
-    "label": "label 30"
-  },
-  {
-    "value": "label 31",
-    "label": "label 31"
-  },
-  {
-    "value": "label 32",
-    "label": "label 32"
-  },
-  {
-    "value": "label 33",
-    "label": "label 33"
-  },
-  {
-    "value": "label 34",
-    "label": "label 34"
-  },
-  {
-    "value": "label 35",
-    "label": "label 35"
-  },
-  {
-    "value": "label 36",
-    "label": "label 36"
-  },
-  {
-    "value": "label 37",
-    "label": "label 37"
-  },
-  {
-    "value": "label 38",
-    "label": "label 38"
-  },
-  {
-    "value": "label 39",
-    "label": "label 39"
-  },
-  {
-    "value": "label 40",
-    "label": "label 40"
-  },
-  {
-    "value": "label 41",
-    "label": "label 41"
-  },
-  {
-    "value": "label 42",
-    "label": "label 42"
-  },
-  {
-    "value": "label 43",
-    "label": "label 43"
-  },
-  {
-    "value": "label 44",
-    "label": "label 44"
-  },
-  {
-    "value": "label 45",
-    "label": "label 45"
-  },
-  {
-    "value": "label 46",
-    "label": "label 46"
-  },
-  {
-    "value": "label 47",
-    "label": "label 47"
-  },
-  {
-    "value": "label 48",
-    "label": "label 48"
-  },
-  {
-    "value": "label 49",
-    "label": "label 49"
-  },
-  {
-    "value": "label 50",
-    "label": "label 50"
-  },
-  {
-    "value": "label 51",
-    "label": "label 51"
-  },
-  {
-    "value": "label 52",
-    "label": "label 52"
-  },
-  {
-    "value": "label 53",
-    "label": "label 53"
-  },
-  {
-    "value": "label 54",
-    "label": "label 54"
-  },
-  {
-    "value": "label 55",
-    "label": "label 55"
-  },
-  {
-    "value": "label 56",
-    "label": "label 56"
-  },
-  {
-    "value": "label 57",
-    "label": "label 57"
-  },
-  {
-    "value": "label 58",
-    "label": "label 58"
-  },
-  {
-    "value": "label 59",
-    "label": "label 59"
-  },
-  {
-    "value": "label 60",
-    "label": "label 60"
-  },
-  {
-    "value": "label 61",
-    "label": "label 61"
-  },
-  {
-    "value": "label 62",
-    "label": "label 62"
-  },
-  {
-    "value": "label 63",
-    "label": "label 63"
-  },
-  {
-    "value": "label 64",
-    "label": "label 64"
-  },
-  {
-    "value": "label 65",
-    "label": "label 65"
-  },
-  {
-    "value": "label 66",
-    "label": "label 66"
-  },
-  {
-    "value": "label 67",
-    "label": "label 67"
-  },
-  {
-    "value": "label 68",
-    "label": "label 68"
-  },
-  {
-    "value": "label 69",
-    "label": "label 69"
-  },
-  {
-    "value": "label 70",
-    "label": "label 70"
-  },
-  {
-    "value": "label 71",
-    "label": "label 71"
-  },
-  {
-    "value": "label 72",
-    "label": "label 72"
-  },
-  {
-    "value": "label 73",
-    "label": "label 73"
-  },
-  {
-    "value": "label 74",
-    "label": "label 74"
-  },
-  {
-    "value": "label 75",
-    "label": "label 75"
-  },
-  {
-    "value": "label 76",
-    "label": "label 76"
-  },
-  {
-    "value": "label 77",
-    "label": "label 77"
-  },
-  {
-    "value": "label 78",
-    "label": "label 78"
-  },
-  {
-    "value": "label 79",
-    "label": "label 79"
-  },
-  {
-    "value": "label 80",
-    "label": "label 80"
-  },
-  {
-    "value": "label 81",
-    "label": "label 81"
-  },
-  {
-    "value": "label 82",
-    "label": "label 82"
-  },
-  {
-    "value": "label 83",
-    "label": "label 83"
-  },
-  {
-    "value": "label 84",
-    "label": "label 84"
-  },
-  {
-    "value": "label 85",
-    "label": "label 85"
-  },
-  {
-    "value": "label 86",
-    "label": "label 86"
-  },
-  {
-    "value": "label 87",
-    "label": "label 87"
-  },
-  {
-    "value": "label 88",
-    "label": "label 88"
-  },
-  {
-    "value": "label 89",
-    "label": "label 89"
-  },
-  {
-    "value": "label 90",
-    "label": "label 90"
-  },
-  {
-    "value": "label 91",
-    "label": "label 91"
-  },
-  {
-    "value": "label 92",
-    "label": "label 92"
-  },
-  {
-    "value": "label 93",
-    "label": "label 93"
-  },
-  {
-    "value": "label 94",
-    "label": "label 94"
-  },
-  {
-    "value": "label 95",
-    "label": "label 95"
-  },
-  {
-    "value": "label 96",
-    "label": "label 96"
-  },
-  {
-    "value": "label 97",
-    "label": "label 97"
-  },
-  {
-    "value": "label 98",
-    "label": "label 98"
-  },
-  {
-    "value": "label 99",
-    "label": "label 99"
-  }
-]
+[ { value: 'label 0', label: 'label 0' },
+  { value: 'label 1', label: 'label 1' },
+  { value: 'label 2', label: 'label 2' },
+  { value: 'label 3', label: 'label 3' },
+  { value: 'label 4', label: 'label 4' },
+  { value: 'label 5', label: 'label 5' },
+  { value: 'label 6', label: 'label 6' },
+  { value: 'label 7', label: 'label 7' },
+  { value: 'label 8', label: 'label 8' },
+  { value: 'label 9', label: 'label 9' },
+  { value: 'label 10', label: 'label 10' },
+  { value: 'label 11', label: 'label 11' },
+  { value: 'label 12', label: 'label 12' },
+  { value: 'label 13', label: 'label 13' },
+  { value: 'label 14', label: 'label 14' },
+  { value: 'label 15', label: 'label 15' },
+  { value: 'label 16', label: 'label 16' },
+  { value: 'label 17', label: 'label 17' },
+  { value: 'label 18', label: 'label 18' },
+  { value: 'label 19', label: 'label 19' },
+  { value: 'label 20', label: 'label 20' },
+  { value: 'label 21', label: 'label 21' },
+  { value: 'label 22', label: 'label 22' },
+  { value: 'label 23', label: 'label 23' },
+  { value: 'label 24', label: 'label 24' },
+  { value: 'label 25', label: 'label 25' },
+  { value: 'label 26', label: 'label 26' },
+  { value: 'label 27', label: 'label 27' },
+  { value: 'label 28', label: 'label 28' },
+  { value: 'label 29', label: 'label 29' },
+  { value: 'label 30', label: 'label 30' },
+  { value: 'label 31', label: 'label 31' },
+  { value: 'label 32', label: 'label 32' },
+  { value: 'label 33', label: 'label 33' },
+  { value: 'label 34', label: 'label 34' },
+  { value: 'label 35', label: 'label 35' },
+  { value: 'label 36', label: 'label 36' },
+  { value: 'label 37', label: 'label 37' },
+  { value: 'label 38', label: 'label 38' },
+  { value: 'label 39', label: 'label 39' },
+  { value: 'label 40', label: 'label 40' },
+  { value: 'label 41', label: 'label 41' },
+  { value: 'label 42', label: 'label 42' },
+  { value: 'label 43', label: 'label 43' },
+  { value: 'label 44', label: 'label 44' },
+  { value: 'label 45', label: 'label 45' },
+  { value: 'label 46', label: 'label 46' },
+  { value: 'label 47', label: 'label 47' },
+  { value: 'label 48', label: 'label 48' },
+  { value: 'label 49', label: 'label 49' },
+  { value: 'label 50', label: 'label 50' },
+  { value: 'label 51', label: 'label 51' },
+  { value: 'label 52', label: 'label 52' },
+  { value: 'label 53', label: 'label 53' },
+  { value: 'label 54', label: 'label 54' },
+  { value: 'label 55', label: 'label 55' },
+  { value: 'label 56', label: 'label 56' },
+  { value: 'label 57', label: 'label 57' },
+  { value: 'label 58', label: 'label 58' },
+  { value: 'label 59', label: 'label 59' },
+  { value: 'label 60', label: 'label 60' },
+  { value: 'label 61', label: 'label 61' },
+  { value: 'label 62', label: 'label 62' },
+  { value: 'label 63', label: 'label 63' },
+  { value: 'label 64', label: 'label 64' },
+  { value: 'label 65', label: 'label 65' },
+  { value: 'label 66', label: 'label 66' },
+  { value: 'label 67', label: 'label 67' },
+  { value: 'label 68', label: 'label 68' },
+  { value: 'label 69', label: 'label 69' },
+  { value: 'label 70', label: 'label 70' },
+  { value: 'label 71', label: 'label 71' },
+  { value: 'label 72', label: 'label 72' },
+  { value: 'label 73', label: 'label 73' },
+  { value: 'label 74', label: 'label 74' },
+  { value: 'label 75', label: 'label 75' },
+  { value: 'label 76', label: 'label 76' },
+  { value: 'label 77', label: 'label 77' },
+  { value: 'label 78', label: 'label 78' },
+  { value: 'label 79', label: 'label 79' },
+  { value: 'label 80', label: 'label 80' },
+  { value: 'label 81', label: 'label 81' },
+  { value: 'label 82', label: 'label 82' },
+  { value: 'label 83', label: 'label 83' },
+  { value: 'label 84', label: 'label 84' },
+  { value: 'label 85', label: 'label 85' },
+  { value: 'label 86', label: 'label 86' },
+  { value: 'label 87', label: 'label 87' },
+  { value: 'label 88', label: 'label 88' },
+  { value: 'label 89', label: 'label 89' },
+  { value: 'label 90', label: 'label 90' },
+  { value: 'label 91', label: 'label 91' },
+  { value: 'label 92', label: 'label 92' },
+  { value: 'label 93', label: 'label 93' },
+  { value: 'label 94', label: 'label 94' },
+  { value: 'label 95', label: 'label 95' },
+  { value: 'label 96', label: 'label 96' },
+  { value: 'label 97', label: 'label 97' },
+  { value: 'label 98', label: 'label 98' },
+  { value: 'label 99', label: 'label 99' } ]
