@@ -16,6 +16,8 @@
     li {
       padding: 5px 10px;
       cursor: pointer;
+      display: flex;
+      justify-content: space-between;
 
       &.focus {
         background-color: #eee;

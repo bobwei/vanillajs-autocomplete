@@ -18,6 +18,7 @@ import createOnValueChange from './eventHandlers/input/createOnValueChange';
 import createOnSelect from './eventHandlers/option/createOnSelect';
 import createOnFocusIndexChange from './eventHandlers/option/createOnFocusIndexChange';
 import createOnHover from './eventHandlers/option/createOnHover';
+import createOnRemove from './eventHandlers/option/createOnRemove';
 import sortData from './utils/sortData';
 
 const createAutoComplete = ({
@@ -47,15 +48,16 @@ const createAutoComplete = ({
   /* option event handlers */
   const onselect = createOnSelect({ setState });
   const onhover = createOnHover({ setState });
+  const onremove = createOnRemove({ getState, setState });
 
-  refs.$optionList = createElement(OptionList, { data: getState().data, history: getState().history, Option, onselect, onhover });
+  refs.$optionList = createElement(OptionList, { data: getState().data, history: getState().history, Option, onselect, onhover, onremove });
   refs.$container = createElement(Container, { el, className: 'auto-complete-container' }, refs.$optionList);
   toggleDisplay(refs.$container)(getState().isOptionListHidden);
 
   /* handle data change by replacing with a new $optionList */
   subscribe(watch(state => state.data, () => {
     refs.$optionList = replace(
-      createElement(OptionList, { data: getState().data, history: getState().history, Option, onselect, onhover }),
+      createElement(OptionList, { data: getState().data, history: getState().history, Option, onselect, onhover, onremove }),
       refs.$optionList,
     );
   }));
