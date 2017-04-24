@@ -1,7 +1,7 @@
 # How it Works
 
 AutoComplete is compose of components, store and event handlers.
-[src/modules/AutoComplete/index.js](./src/modules/AutoComplete/index.js)
+- [src/modules/AutoComplete/index.js](./src/modules/AutoComplete/index.js)
 
 __Store__ is responsible for state management and as the single source of truth for any state including isOptionListHidden, focusIndex, value, data, history and so on.
 
