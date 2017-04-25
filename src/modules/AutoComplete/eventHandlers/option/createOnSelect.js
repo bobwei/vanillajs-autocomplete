@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 const createOnSelect = ({
   setState,
   valueSelector = e => e.currentTarget.dataset.value,
