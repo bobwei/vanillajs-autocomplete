@@ -76,6 +76,10 @@ __Store__ is responsible for state management and as the single source of truth 
 - [src/modules/stores/createStore.js](./src/modules/stores/createStore.js)
 
 __Event handlers__ are subscribing to the state change and reflect corresponding changes to UI. Event handlers here are factory functions that receive props as input and return event handler function that can handle user action and access props from closure.
+- ex: [src/modules/AutoComplete/eventHandlers/createOnInput](./src/modules/AutoComplete/eventHandlers/createOnInput)
+  1. createOnInput is a factory function that accepts data, getState, setState, valueSelector and filterOption.
+  2. It returns an event handler that can access props and update corresponding state.
+  3. Event handlers only trigger state mutation and do not update DOM directly. DOM is updated by handlers subscribing to state change.
 
 __Components__ are functions that return elements. It's composable, reusable and declarative.
 
