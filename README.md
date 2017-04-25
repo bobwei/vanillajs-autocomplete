@@ -76,7 +76,7 @@ __Store__ is responsible for state management and as the single source of truth 
 - [src/modules/stores/createStore.js](./src/modules/stores/createStore.js)
 
 __Event handlers__ are subscribing to the state change and reflect corresponding changes to UI. Event handlers here are factory functions that receive props as input and return event handler function that can handle user action and access props from closure.
-- ex: [src/modules/AutoComplete/eventHandlers/createOnInput](./src/modules/AutoComplete/eventHandlers/createOnInput)
+- ex: [src/modules/AutoComplete/eventHandlers/createOnInput.js](./src/modules/AutoComplete/eventHandlers/createOnInput.js)
   1. createOnInput is a factory function that accepts data, getState, setState, valueSelector and filterOption.
   2. It returns an event handler that can access props and update corresponding state.
   3. Event handlers only trigger state mutation and do not update DOM directly. DOM is updated by handlers subscribing to state change.
@@ -88,3 +88,6 @@ __History__ is implemented simply by persisting store state to storage since sto
 
 __Watch__ It's a utility function that help us subscribing to state change that we concern.
 - [src/modules/utils/watch.js](./src/modules/utils/watch.js)
+
+__createElement__ is a DOM utility function that enable us to create declarative DOM, to compose components.
+- [src/modules/dom/createElement.js](./src/modules/dom/createElement.js)
