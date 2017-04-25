@@ -79,7 +79,7 @@ __Event handlers__ are subscribing to the state change and reflect corresponding
 - ex: [src/modules/AutoComplete/eventHandlers/createOnInput.js](./src/modules/AutoComplete/eventHandlers/createOnInput.js)
   1. createOnInput is a factory function that accepts data, getState, setState, valueSelector and filterOption.
   2. It returns an event handler that can access props and update corresponding state.
-  3. Event handlers only trigger state mutation and do not update DOM directly. DOM is updated by handlers subscribing to state change.
+  3. Event handlers only trigger action which result in state change and do not update DOM directly. DOM is updated by handlers subscribing to state change.
 
 __Components__ are functions that return elements. It's composable, reusable and declarative.
 
